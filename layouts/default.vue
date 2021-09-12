@@ -19,6 +19,7 @@
 
     <main>
       <Nuxt />
+      <Cart />
     </main>
 
     <Footer>
@@ -35,11 +36,14 @@
 import Header from '@/components/layout/header/header';
 import Footer from '@/components/layout/footer/footer';
 
+import Cart from '@/components/cart/cart';
+
 export default {
   name: 'LayoutDefault',
   components: {
     Header,
-    Footer
+    Footer,
+    Cart
   }
 }
 </script>
