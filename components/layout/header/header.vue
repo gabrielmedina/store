@@ -15,9 +15,9 @@
       <slot />
     </div>
 
-    <nav class="header__nav">
+    <div class="header__nav">
       <slot name="nav" />
-    </nav>
+    </div>
   </header>
 </template>
 

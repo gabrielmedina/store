@@ -14,7 +14,7 @@
       <template #cta>
         <ButtonIcon
           tag="button"
-          @click.stop="addToCart"
+          @click.stop.prevent="addToCart"
         >
           <SvgCart />
         </ButtonIcon>
@@ -24,6 +24,10 @@
 </template>
 
 <script>
+import { objectShouldHave } from 'vue-prop-validation-helper'
+
+import cartState from '@/state/cart'
+
 import Card from '@/components/card/card'
 import ButtonIcon from '@/components/button/button-icon'
 
@@ -36,9 +40,21 @@ export default {
     ButtonIcon,
     SvgCart,
   },
+  props: {
+    product: {
+      type: Object,
+      required: true,
+      validator: objectShouldHave([
+        'id',
+        'title',
+        'image',
+      ]),
+    }
+  },
   methods: {
     addToCart() {
-      console.log('Add to cart');
+      cartState.items.push(this.product);
+      cartState.open = true;
     }
   }
 }

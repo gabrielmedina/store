@@ -1,11 +1,11 @@
 <template>
   <ol class="product-list">
     <li
-      v-for="(item, index) in 24"
-      :key="index"
+      v-for="product in products"
+      :key="product.id"
       class="product-list__item"
     >
-      <ProductListItem />
+      <ProductListItem :product="product" />
     </li>
   </ol>
 </template>
@@ -17,6 +17,12 @@ export default {
   name: 'ProductList',
   components: {
     ProductListItem,
+  },
+  props: {
+    products: {
+      type: Array,
+      default: () => [],
+    },
   }
 }
 </script>

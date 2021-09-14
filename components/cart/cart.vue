@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import cartState from '@/state/cart'
+
 import CartList from '@/components/cart/cart-list'
 import ButtonIcon from '@/components/button/button-icon'
 
@@ -43,24 +45,20 @@ export default {
     ButtonIcon,
     SvgClose
   },
-  props: {
-    display: {
-      type: Boolean,
-      default: false,
-    },
-    products: {
-      type: Array,
-      default: () => [],
-    }
-  },
   computed: {
+    display() {
+      return cartState.open;
+    },
+    products() {
+      return cartState.items;
+    },
     hasProducts() {
       return this.products.length > 0;
     }
   },
   methods: {
     close() {
-      this.$emit('close');
+      cartState.open = false;
     }
   }
 }
@@ -81,12 +79,13 @@ export default {
 .cart__content {
   box-sizing: border-box;
   width: 100%;
-  padding: 40px;
+  padding: 24px;
   background: #fff;
   box-shadow: 0 10px 10px rgba(0,0,0,.06);
 
   @media screen and (min-width: 408px) {
     width: 408px;
+    padding: 40px;
   }
 }
 
@@ -103,23 +102,29 @@ export default {
 .cart__close {
   position: absolute;
   top: 16px;
-  right: 16px;
-}
+  right: 24px;
 
-.card-transition-enter-active,
-.card-transition-leave-active {
-  opacity: 1;
-
-  .cart__content {
-    transform: translateX(0);
+  @media screen and (min-width: 768px) {
+    top: 24px;
   }
 }
-.card-transition-enter,
-.card-transition-leave-to {
+
+.cart-transition-enter-active,
+.cart-transition-leave-active {
+  will-change: opacity;
+  transition: opacity .3s ease;
+
+  .cart__content {
+    will-change: transform;
+    transition: transform .3s ease;
+  }
+}
+.cart-transition-enter,
+.cart-transition-leave-to {
   opacity: 0;
 
   .cart__content {
-    transform: translateX(-100%);
+    transform: translateX(100%);
   }
 }
 </style>

@@ -6,16 +6,7 @@
       </template>
 
       <template #nav>
-        <ul class="default__nav">
-          <li class="default__nav-item">
-            <ButtonIcon
-              tag="a"
-              href="#"
-            >
-              <SvgCart />
-            </ButtonIcon>
-          </li>
-        </ul>
+        <Nav />
       </template>
 
       <FormSearch />
@@ -33,23 +24,21 @@
 <script>
 import Header from '@/components/layout/header/header'
 import Footer from '@/components/layout/footer/footer'
+import Nav from '@/components/layout/nav/nav'
 import Cart from '@/components/cart/cart'
 import FormSearch from '@/components/form-search/form-search'
-import ButtonIcon from '@/components/button/button-icon'
 
 import SvgLogo from '~/assets/img/logo.svg?inline'
-import SvgCart from '~/assets/img/icons/cart-outline.svg?inline'
 
 export default {
   name: 'LayoutDefault',
   components: {
     Header,
     Footer,
+    Nav,
     Cart,
-    ButtonIcon,
     FormSearch,
     SvgLogo,
-    SvgCart,
   }
 }
 </script>
