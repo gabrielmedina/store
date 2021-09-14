@@ -1,29 +1,16 @@
 <template>
-  <ol>
-    <li>
-      <Card
-        title="Watch Vintage V"
-        text="$ 50,00"
-        :image="{
-          src: '/test.jpg',
-          alt: 'Test'
-        }"
-      >
-        <template #cta>
-          <button>Add to cart</button>
-        </template>
-      </Card>
-    </li>
-  </ol>
+  <div class="container">
+    <ProductList />
+  </div>
 </template>
 
 <script>
-import Card from '@/components/card/card'
+import ProductList from '@/components/product/product-list'
 
 export default {
   name: 'PageIndex',
   components: {
-    Card,
+    ProductList,
   }
 }
 </script>

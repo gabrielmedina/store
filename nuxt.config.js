@@ -18,6 +18,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/styles/reset.scss',
+    '@/assets/styles/colors.scss',
+    '@/assets/styles/containers.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -33,6 +36,10 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    // https://github.com/nuxt-community/svg-module
+    '@nuxtjs/svg',
+    // https://google-fonts.nuxtjs.org/
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,5 +53,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // Google Fonts: https://google-fonts.nuxtjs.org
+  googleFonts: {
+    families: {
+      Roboto: [400, 700],
+    }
   }
 }
