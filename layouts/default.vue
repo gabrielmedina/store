@@ -39,11 +39,12 @@ export default {
     Cart,
     FormSearch,
     SvgLogo,
-  }
+  },
 }
 </script>
 
-<style lang="scss" scoped>
+
+    Breadcrumb<style lang="scss" scoped>
 .default {
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
@@ -53,11 +54,11 @@ export default {
 .default__header {
   margin-bottom: 24px;
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 992px) {
     margin-bottom: 48px;
   }
 }

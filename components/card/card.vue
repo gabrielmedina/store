@@ -99,6 +99,7 @@ export default {
 
 .card__figure {
   order: 1;
+  background: #e5e5e5;
 }
 
 .card__image {

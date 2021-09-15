@@ -1,15 +1,12 @@
 <template>
   <nuxt-link
     class="product-list-item"
-    to="/product/slug/id"
+    :to="`/product/${product.slug}/${product.id}`"
   >
     <Card
-      title="Watch Vintage V"
-      text="$ 50,00"
-      :image="{
-        src: '/watch-vintage-v.jpg',
-        alt: 'Watch Vintage V'
-      }"
+      :title="product.title"
+      :text="product.price"
+      :image="product.image"
     >
       <template #cta>
         <ButtonIcon
@@ -46,7 +43,9 @@ export default {
       required: true,
       validator: objectShouldHave([
         'id',
+        'slug',
         'title',
+        'price',
         'image',
       ]),
     }

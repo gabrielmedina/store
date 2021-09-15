@@ -4,7 +4,7 @@
       <li class="default__nav-item">
         <ButtonIcon
           tag="a"
-          href="#"
+          href="#cart"
           @click="openCart"
         >
           <SvgCart />

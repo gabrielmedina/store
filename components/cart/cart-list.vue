@@ -26,3 +26,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.cart-list {
+  display: grid;
+  row-gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+</style>

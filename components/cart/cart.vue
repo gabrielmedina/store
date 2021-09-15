@@ -1,22 +1,26 @@
 <template>
   <transition name="cart-transition">
     <div
-      v-if="display"
+      v-show="display"
       class="cart"
     >
       <section class="cart__content">
-        <h2 class="cart__title">My cart</h2>
-        <p
+        <header
           v-if="!hasProducts"
-          class="cart__text"
+          class="cart__header"
         >
-          This cart is empty
-        </p>
+          <h2 class="cart__title">My cart</h2>
+          <p class="cart__text">This cart is empty</p>
+        </header>
 
-        <CartList
-          v-else
-          :products="products"
-        />
+        <template v-else>
+          <header class="cart__header">
+            <h2 class="cart__title">My cart</h2>
+            <p class="cart__text">With {{ products.length }} products</p>
+          </header>
+
+          <CartList :products="products" />
+        </template>
 
         <ButtonIcon
           tag="button"
@@ -79,24 +83,37 @@ export default {
 .cart__content {
   box-sizing: border-box;
   width: 100%;
-  padding: 24px;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 0 24px 24px;
   background: #fff;
   box-shadow: 0 10px 10px rgba(0,0,0,.06);
 
   @media screen and (min-width: 408px) {
     width: 408px;
-    padding: 40px;
+    padding: 0 40px 40px;
+  }
+}
+
+.cart__header {
+  display: grid;
+  row-gap: 8px;
+  position: sticky;
+  top: 0;
+  padding: 32px 0;
+  background: #fff;
+
+  @media screen and (min-width: 408px) {
+    padding: 40px 0 24px;
   }
 }
 
 .cart__title {
-  margin-bottom: 16px;
   font-size: 1.25rem;
 }
 
 .cart__text {
   color: #777;
-  font-size: 1rem;
 }
 
 .cart__close {

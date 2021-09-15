@@ -1,52 +1,50 @@
 [
   {
-    "id": "3ba14dc2-77c3-4906-b944-35ae0c33bceb",
-    "title": "Watch Vintage V",
-    "description": "A little description of product",
-    "price": "245.00",
-    "image": {
-      "src": "/watch-vintage-v.jpg",
-      "alt": "Watch Vintage Image"
-    }
-  },
-  {
     "id": "29898895-744d-4bca-ae76-77437bd5014d",
-    "title": "Watch Vintage V",
-    "description": "A little description of product",
+    "title": "Brigitte Tohm",
+    "slug": "brigitte-tohm",
+    "summary": "A little description of product",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "price": "245.00",
     "image": {
-      "src": "/watch-vintage-v.jpg",
-      "alt": "Watch Vintage Image"
+      "src": "/brigitte-tohm.jpg",
+      "alt": "Brigitte Tohm watch"
     }
   },
   {
     "id": "e4d01d05-df6c-4c07-9cd2-50856e0c07ed",
-    "title": "Watch Vintage V",
-    "description": "A little description of product",
+    "title": "Jealynn Castillo",
+    "slug": "jaelynn-castillo",
+    "summary": "A little description of product",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "price": "245.00",
     "image": {
-      "src": "/watch-vintage-v.jpg",
-      "alt": "Watch Vintage Image"
+      "src": "/jaelynn-castillo.jpg",
+      "alt": "Jealynn Castillo watch"
+    }
+  },
+  {
+    "id": "3ba14dc2-77c3-4906-b944-35ae0c33bceb",
+    "title": "Andrea Natali",
+    "slug": "andrea-natali",
+    "summary": "A little description of product",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "price": "245.00",
+    "image": {
+      "src": "/andrea-natali.jpg",
+      "alt": "Andrea Natali watch"
     }
   },
   {
     "id": "2ed436b6-4821-434e-bcce-d476b2495f91",
-    "title": "Watch Vintage V",
-    "description": "A little description of product",
+    "title": "Mitchell Hollander",
+    "slug": "mitchell-hollander",
+    "summary": "A little description of product",
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     "price": "245.00",
     "image": {
-      "src": "/watch-vintage-v.jpg",
-      "alt": "Watch Vintage Image"
-    }
-  },
-  {
-    "id": "055c24f8-fef6-4831-b272-0399c40e27dc",
-    "title": "Watch Vintage V",
-    "description": "A little description of product",
-    "price": "245.00",
-    "image": {
-      "src": "/watch-vintage-v.jpg",
-      "alt": "Watch Vintage Image"
+      "src": "/mitchell-hollander.jpg",
+      "alt": "Mitchell Hollander watch"
     }
   }
 ]
