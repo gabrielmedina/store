@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     display() {
-      return this.links.length > 0;
+      return this.links.length > 0
     },
   }
 }
