@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import cartState from '@/state/cart'
+import cartService from '@/services/cart'
 
 import CartList from '@/components/cart/cart-list'
 import ButtonIcon from '@/components/button/button-icon'
@@ -51,18 +51,18 @@ export default {
   },
   computed: {
     display() {
-      return cartState.open;
+      return cartService.isOpened()
     },
     products() {
-      return cartState.items;
+      return cartService.getAll()
     },
     hasProducts() {
-      return this.products.length > 0;
+      return cartService.hasItems()
     }
   },
   methods: {
     close() {
-      cartState.open = false;
+      cartService.close()
     }
   }
 }

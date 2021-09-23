@@ -40,7 +40,7 @@
 <script>
 import productsData from '@/assets/data/products'
 
-import cartState from '@/state/cart'
+import cartService from '@/services/cart'
 
 import Breadcrumb from '@/components/breadcrumb/breadcrumb'
 
@@ -50,7 +50,7 @@ export default {
     Breadcrumb,
   },
   asyncData({ route }) {
-    const product = productsData.find(product => product.id === route.params.id);
+    const product = productsData.find(product => product.id === route.params.id)
     // const product = await api.getProduct({ id: route.params.id })
 
     return {
@@ -85,8 +85,12 @@ export default {
   },
   methods: {
     addToCart() {
-      cartState.items.push(this.product);
-      cartState.open = true;
+      try {
+        cartService.add(this.product)
+      } catch (error) {
+        // TODO: move this msg to Toast component
+        console.warn(error) // eslint-disable-line
+      }
     }
   }
 }
@@ -98,7 +102,7 @@ export default {
   row-gap: 32px;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: 400px auto;
+    grid-template-columns: 448px auto;
     column-gap: 32px;
   }
 
@@ -140,7 +144,7 @@ export default {
 
 .product-details__text {
   color: #777;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .product-details__price {

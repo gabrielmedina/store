@@ -2,11 +2,7 @@
   <nav>
     <ul class="default__nav">
       <li class="default__nav-item">
-        <ButtonIcon
-          tag="a"
-          href="#cart"
-          @click="openCart"
-        >
+        <ButtonIcon tag="a" href="#cart" @click="openCart">
           <SvgCart />
         </ButtonIcon>
       </li>
@@ -15,7 +11,7 @@
 </template>
 
 <script>
-import cartState from '@/state/cart'
+import cartService from '@/services/cart'
 
 import ButtonIcon from '@/components/button/button-icon'
 
@@ -29,8 +25,8 @@ export default {
   },
   methods: {
     openCart() {
-      cartState.open = true;
-    }
-  }
+      cartService.open()
+    },
+  },
 }
 </script>

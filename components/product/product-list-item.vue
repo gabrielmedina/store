@@ -3,16 +3,9 @@
     class="product-list-item"
     :to="`/product/${product.slug}/${product.id}`"
   >
-    <Card
-      :title="product.title"
-      :text="product.price"
-      :image="product.image"
-    >
+    <Card :title="product.title" :text="product.price" :image="product.image">
       <template #cta>
-        <ButtonIcon
-          tag="button"
-          @click.stop.prevent="addToCart"
-        >
+        <ButtonIcon tag="button" @click.stop.prevent="addToCart">
           <SvgCart />
         </ButtonIcon>
       </template>
@@ -23,7 +16,7 @@
 <script>
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
-import cartState from '@/state/cart'
+import cartService from '@/services/cart'
 
 import Card from '@/components/card/card'
 import ButtonIcon from '@/components/button/button-icon'
@@ -41,21 +34,19 @@ export default {
     product: {
       type: Object,
       required: true,
-      validator: objectShouldHave([
-        'id',
-        'slug',
-        'title',
-        'price',
-        'image',
-      ]),
-    }
+      validator: objectShouldHave(['id', 'slug', 'title', 'price', 'image']),
+    },
   },
   methods: {
     addToCart() {
-      cartState.items.push(this.product);
-      cartState.open = true;
+      try {
+        cartService.add(this.product)
+      } catch (error) {
+        // TODO: move this msg to Toast component
+        console.warn(error) // eslint-disable-line
+      }
     }
-  }
+  },
 }
 </script>
 

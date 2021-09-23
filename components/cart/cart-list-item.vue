@@ -45,6 +45,8 @@
 <script>
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
+import cartService from '@/services/cart'
+
 import SvgAdd from '~/assets/img/icons/add-outline.svg?inline'
 import SvgRemove from '~/assets/img/icons/remove-outline.svg?inline'
 
@@ -73,10 +75,15 @@ export default {
   },
   methods: {
     increase() {
-      this.quantity++;
+      this.quantity++
     },
     decrease() {
-      this.quantity--;
+      if (this.quantity === 1) {
+        // TODO: improve UX with confirmation dialog
+        return cartService.remove(this.product)
+      }
+
+      this.quantity--
     },
   }
 }
