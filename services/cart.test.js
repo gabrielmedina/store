@@ -18,8 +18,8 @@ describe('Services > CartService', () => {
     const response = cartService.add(product)
 
     expect(response).toEqual(product)
-    expect(cartService.hasItems()).toEqual(true)
-    expect(cartService.isOpened()).toEqual(true)
+    expect(cartService.hasItems()).toBeTruthy()
+    expect(cartService.isOpened()).toBeTruthy()
     expect(cartService.getAll()).toEqual([product])
   })
 
@@ -38,7 +38,7 @@ describe('Services > CartService', () => {
     const response = cartService.remove(product)
 
     expect(response).toEqual(product)
-    expect(cartService.hasItems()).toEqual(false)
+    expect(cartService.hasItems()).toBeFalsy()
     expect(cartService.getAll()).toEqual([])
   })
 
