@@ -14,21 +14,25 @@ class CartService {
   }
 
   add(item) {
-    if (this._findItem(item) > -1) {
+    if (this.#findItem(item) > -1) {
       this.open()
-      throw new Error('This item is present on cart!')
+      return false
     }
 
     cartState.items.push(item)
     this.open()
+    return item
   }
 
   remove(item) {
-    const index = this._findItem(item)
+    const index = this.#findItem(item)
 
     if (index > -1) {
       cartState.items.splice(index, 1)
+      return item
     }
+
+    return false
   }
 
   getAll() {
@@ -40,8 +44,7 @@ class CartService {
   }
 
   // private
-
-  _findItem(item) {
+  #findItem(item) {
     return cartState.items.findIndex(cartItem => cartItem.id === item.id)
   }
 }
