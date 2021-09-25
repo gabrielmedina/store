@@ -20,7 +20,7 @@ describe('Services > CartService', () => {
     expect(response).toEqual(product)
     expect(cartService.hasItems()).toBeTruthy()
     expect(cartService.isOpened()).toBeTruthy()
-    expect(cartService.getAll()).toEqual([product])
+    expect(cartService.get()).toEqual([product])
   })
 
   it('when add() is called but the product has present in cart', () => {
@@ -29,7 +29,7 @@ describe('Services > CartService', () => {
     const response = cartService.add(product)
 
     expect(response).toBeFalsy()
-    expect(cartService.getAll()).toHaveLength(1)
+    expect(cartService.get()).toHaveLength(1)
   })
 
   it('when remove() is called', () => {
@@ -39,7 +39,7 @@ describe('Services > CartService', () => {
 
     expect(response).toEqual(product)
     expect(cartService.hasItems()).toBeFalsy()
-    expect(cartService.getAll()).toEqual([])
+    expect(cartService.get()).toEqual([])
   })
 
   it('when remove() is called but the product has not present in cart', () => {

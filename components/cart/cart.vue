@@ -54,7 +54,7 @@ export default {
       return cartService.isOpened()
     },
     products() {
-      return cartService.getAll()
+      return cartService.get()
     },
     hasProducts() {
       return cartService.hasItems()
