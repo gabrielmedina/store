@@ -11,6 +11,7 @@
 
       <div class="cart-list-item__quantity">
         <ButtonIcon
+          data-testid="decrease"
           tag="button"
           class="cart__close"
           @click="decrease"
@@ -18,11 +19,15 @@
           <SvgRemove />
         </ButtonIcon>
 
-        <span class="cart-list-item__quantity-value">
+        <span
+          data-testid="quantity"
+          class="cart-list-item__quantity-value"
+        >
           {{ quantity }}
         </span>
 
         <ButtonIcon
+          data-testid="increase"
           tag="button"
           class="cart__close"
           @click="increase"
@@ -45,14 +50,17 @@
 <script>
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
-import cartService from '@/services/cart'
-
 import SvgAdd from '~/assets/img/icons/add-outline.svg?inline'
 import SvgRemove from '~/assets/img/icons/remove-outline.svg?inline'
+
+import cartService from '@/services/cart'
+
+import ButtonIcon from '@/components/button/button-icon'
 
 export default {
   name: 'CartListItem',
   components: {
+    ButtonIcon,
     SvgAdd,
     SvgRemove
   },
