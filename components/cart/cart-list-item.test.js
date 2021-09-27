@@ -1,4 +1,4 @@
-import { screen, render, fireEvent, waitFor } from '@testing-library/vue'
+import { screen, render, fireEvent } from '@testing-library/vue'
 import CartListItem from '@/components/cart/cart-list-item'
 import cartService from '@/services/cart'
 import Products from '@/test/_stubs/products'
@@ -55,7 +55,7 @@ describe('Components > Cart > CartListItem', () => {
       expect(screen.getByTestId('quantity')).toHaveTextContent('1')
     })
 
-    describe('and have just 1 quantity of item', () => {
+    describe('and have just 1 item', () => {
       it('should remove from cart', async () => {
         const { product } = renderComponent()
 
