@@ -1,7 +1,8 @@
 module.exports = {
   moduleNameMapper: {
-    '^@/(.*svg)(\\?inline)$': '<rootDir>/$1',
+    '^~/(.*svg)(\\?inline)$': '<rootDir>/$1',
     '^@/(.*)$': '<rootDir>/$1',
+    '^~/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
   },
   moduleFileExtensions: [
@@ -23,5 +24,6 @@ module.exports = {
     '<rootDir>/services/**/*.js',
     '<rootDir>/states/**/*.js',
   ],
+  setupFilesAfterEnv: ['<rootDir>/test/_support/jestSetup.js'],
   testEnvironment: 'jsdom'
 }
