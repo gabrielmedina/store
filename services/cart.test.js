@@ -1,5 +1,5 @@
 import cartService from '@/services/cart'
-import Products from '@/tests/stubs/products'
+import Products from '@/test/_stubs/products'
 
 describe('Services > CartService', () => {
   it('when open() is called', () => {
