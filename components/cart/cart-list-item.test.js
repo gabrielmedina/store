@@ -21,6 +21,10 @@ function renderComponent() {
 }
 
 describe('Components > Cart > CartListItem', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   describe('when the component is rendered', () => {
     it('should render correctly', () => {
       const { container, product } = renderComponent()
@@ -60,6 +64,7 @@ describe('Components > Cart > CartListItem', () => {
         const { product } = renderComponent()
 
         await fireEvent.click(screen.getByTestId('decrease'))
+        expect(cartService.remove).toBeCalledTimes(1)
         expect(cartService.remove).toBeCalledWith(product)
       })
     })
