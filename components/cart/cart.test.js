@@ -3,8 +3,6 @@ import Cart from '@/components/cart/cart'
 import cartService from '@/services/cartService'
 import Products from '@/test/_stubs/products'
 
-// jest.mock('@/services/cartService')
-
 function renderComponent() {
   const { container } = render(Cart)
 
