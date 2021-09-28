@@ -11,7 +11,7 @@ function renderComponent() {
   }
 }
 
-describe('Components > Cart > CartList', () => {
+describe('Components > Cart > Cart', () => {
   describe('when the component is rendered', () => {
     it('should render correctly', () => {
       const { container } = renderComponent()
