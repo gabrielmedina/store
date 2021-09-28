@@ -2,6 +2,7 @@
   <transition name="cart-transition">
     <div
       v-show="display"
+      data-testid="cart"
       class="cart"
     >
       <section class="cart__content">
@@ -24,6 +25,7 @@
 
         <ButtonIcon
           tag="button"
+          data-testid="close"
           class="cart__close"
           @click="close"
         >
@@ -35,7 +37,7 @@
 </template>
 
 <script>
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 
 import CartList from '@/components/cart/cart-list'
 import ButtonIcon from '@/components/button/button-icon'

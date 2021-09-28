@@ -53,7 +53,7 @@ import { objectShouldHave } from 'vue-prop-validation-helper'
 import SvgAdd from '~/assets/img/icons/add-outline.svg?inline'
 import SvgRemove from '~/assets/img/icons/remove-outline.svg?inline'
 
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 
 import ButtonIcon from '@/components/button/button-icon'
 

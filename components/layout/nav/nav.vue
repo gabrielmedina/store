@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 
 import ButtonIcon from '@/components/button/button-icon'
 

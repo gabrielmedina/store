@@ -1,4 +1,4 @@
-import cartState from '@/states/cart'
+import cartState from '@/states/cartState'
 
 class CartService {
   add(item) {

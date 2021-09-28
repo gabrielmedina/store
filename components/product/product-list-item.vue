@@ -16,7 +16,7 @@
 <script>
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 
 import Card from '@/components/card/card'
 import ButtonIcon from '@/components/button/button-icon'
@@ -45,7 +45,7 @@ export default {
         // TODO: move this msg to Toast component
         console.warn(error) // eslint-disable-line
       }
-    }
+    },
   },
 }
 </script>

@@ -1,4 +1,4 @@
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 import Products from '@/test/_stubs/products'
 
 describe('Services > CartService', () => {

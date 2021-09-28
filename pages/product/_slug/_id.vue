@@ -17,10 +17,7 @@
             {{ product.price }}
           </p>
 
-          <Button
-            text="Add to cart"
-            @click="addToCart"
-          />
+          <Button text="Add to cart" @click="addToCart" />
         </div>
 
         <div class="product-details__gallery">
@@ -29,7 +26,7 @@
               class="product-details__image"
               :src="product.image.src"
               :alt="product.image.alt"
-            >
+            />
           </figure>
         </div>
       </article>
@@ -40,7 +37,7 @@
 <script>
 import productsData from '@/assets/data/products'
 
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 
 import Breadcrumb from '@/components/breadcrumb/breadcrumb'
 
@@ -50,7 +47,9 @@ export default {
     Breadcrumb,
   },
   asyncData({ route }) {
-    const product = productsData.find(product => product.id === route.params.id)
+    const product = productsData.find(
+      (product) => product.id === route.params.id
+    )
     // const product = await api.getProduct({ id: route.params.id })
 
     return {
@@ -64,9 +63,9 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.product.summary}`
-        }
-      ]
+          content: `${this.product.summary}`,
+        },
+      ],
     }
   },
   computed: {
@@ -74,14 +73,14 @@ export default {
       return [
         {
           title: 'Home',
-          path: '/'
+          path: '/',
         },
         {
           title: this.product.title,
-          path: this.$route.path
+          path: this.$route.path,
         },
       ]
-    }
+    },
   },
   methods: {
     addToCart() {
@@ -91,8 +90,8 @@ export default {
         // TODO: move this msg to Toast component
         console.warn(error) // eslint-disable-line
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

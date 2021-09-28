@@ -1,9 +1,9 @@
 import { screen, render, fireEvent } from '@testing-library/vue'
 import CartListItem from '@/components/cart/cart-list-item'
-import cartService from '@/services/cart'
+import cartService from '@/services/cartService'
 import Products from '@/test/_stubs/products'
 
-jest.mock('@/services/cart')
+jest.mock('@/services/cartService')
 
 function renderComponent() {
   const product = Products[0]
