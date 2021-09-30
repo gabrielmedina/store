@@ -2,6 +2,7 @@
   <header class="header">
     <div class="header__logo">
       <nuxt-link
+        data-testid="home"
         class="header__logo-link"
         to="/"
       >
