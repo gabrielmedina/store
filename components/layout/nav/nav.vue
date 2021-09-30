@@ -3,6 +3,7 @@
     <ul class="default__nav">
       <li class="default__nav-item">
         <Button
+          data-testid="cart"
           tag="a"
           href="#cart"
           variant="transparent"
