@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Link one",
+    "path": "/link-one"
+  },
+  {
+    "title": "Link two",
+    "path": "/link-two"
+  },
+  {
+    "title": "Link three",
+    "path": "/link-three"
+  },
+  {
+    "title": "Link four",
+    "path": "/link-four"
+  }
+]
