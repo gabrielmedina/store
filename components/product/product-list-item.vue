@@ -6,13 +6,14 @@
   >
     <Card :title="product.title" :text="product.price" :image="product.image">
       <template #cta>
-        <ButtonIcon
+        <Button
           tag="button"
           data-testid="add"
+          type="icon"
           @click.stop.prevent="addToCart"
         >
           <SvgCart />
-        </ButtonIcon>
+        </Button>
       </template>
     </Card>
   </nuxt-link>
@@ -24,7 +25,7 @@ import { objectShouldHave } from 'vue-prop-validation-helper'
 import cartService from '@/services/cartService'
 
 import Card from '@/components/card/card'
-import ButtonIcon from '@/components/button/button-icon'
+import Button from '@/components/button/button'
 
 import SvgCart from '~/assets/img/icons/cart-outline.svg?inline'
 
@@ -32,7 +33,7 @@ export default {
   name: 'ProductListItem',
   components: {
     Card,
-    ButtonIcon,
+    Button,
     SvgCart,
   },
   props: {

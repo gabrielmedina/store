@@ -2,9 +2,15 @@
   <nav>
     <ul class="default__nav">
       <li class="default__nav-item">
-        <ButtonIcon tag="a" href="#cart" @click="openCart">
+        <Button
+          tag="a"
+          href="#cart"
+          variant="transparent"
+          type="icon"
+          @click="openCart"
+        >
           <SvgCart />
-        </ButtonIcon>
+        </Button>
       </li>
     </ul>
   </nav>
@@ -13,14 +19,14 @@
 <script>
 import cartService from '@/services/cartService'
 
-import ButtonIcon from '@/components/button/button-icon'
+import Button from '@/components/button/button'
 
 import SvgCart from '~/assets/img/icons/cart-outline.svg?inline'
 
 export default {
   name: 'Nav',
   components: {
-    ButtonIcon,
+    Button,
     SvgCart,
   },
   methods: {

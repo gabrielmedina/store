@@ -2,11 +2,14 @@
   <component
     :is="tag"
     class="button"
-    :class="`button--${type}`"
+    :class="{
+      [`button--${variant}`]: variant,
+      [`button--${type}`]: type,
+    }"
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <span class="button__text">{{ text }}</span>
+    <slot />
   </component>
 </template>
 
@@ -27,20 +30,22 @@ export default {
         'router-link'
       ])
     },
-    type: {
+    variant: {
       type: String,
-      default: 'primary',
+      default: null,
       validator: shouldBeOneOf([
-        'default',
         'transparent',
         'primary',
       ])
     },
-    text: {
+    type: {
       type: String,
-      default: '',
+      default: null,
+      validator: shouldBeOneOf([
+        'icon',
+      ])
     },
-  }
+  },
 }
 </script>
 
@@ -82,5 +87,11 @@ export default {
   &:focus {
     background: rgba(0,0,0,.05);
   }
+}
+
+.button--icon {
+  width: 48px;
+  padding: 12px;
+  border-radius: 100%;
 }
 </style>

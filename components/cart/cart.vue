@@ -1,15 +1,8 @@
 <template>
   <transition name="cart-transition">
-    <div
-      v-show="display"
-      data-testid="cart"
-      class="cart"
-    >
+    <div v-show="display" data-testid="cart" class="cart">
       <section class="cart__content">
-        <header
-          v-if="!hasProducts"
-          class="cart__header"
-        >
+        <header v-if="!hasProducts" class="cart__header">
           <h2 class="cart__title">My cart</h2>
           <p class="cart__text">This cart is empty</p>
         </header>
@@ -23,14 +16,16 @@
           <CartList :products="products" />
         </template>
 
-        <ButtonIcon
+        <Button
           tag="button"
           data-testid="close"
+          variant="transparent"
+          type="icon"
           class="cart__close"
           @click="close"
         >
           <SvgClose />
-        </ButtonIcon>
+        </Button>
       </section>
     </div>
   </transition>
@@ -39,8 +34,8 @@
 <script>
 import cartService from '@/services/cartService'
 
+import Button from '@/components/button/button'
 import CartList from '@/components/cart/cart-list'
-import ButtonIcon from '@/components/button/button-icon'
 
 import SvgClose from '~/assets/img/icons/close-outline.svg?inline'
 
@@ -48,8 +43,8 @@ export default {
   name: 'Cart',
   components: {
     CartList,
-    ButtonIcon,
-    SvgClose
+    Button,
+    SvgClose,
   },
   computed: {
     display() {
@@ -60,13 +55,13 @@ export default {
     },
     hasProducts() {
       return cartService.hasItems()
-    }
+    },
   },
   methods: {
     close() {
       cartService.close()
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -79,7 +74,7 @@ export default {
   height: 100%;
   display: flex;
   justify-content: flex-end;
-  background: rgba(0,0,0,.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .cart__content {
@@ -89,7 +84,7 @@ export default {
   overflow-y: scroll;
   padding: 0 24px 24px;
   background: #fff;
-  box-shadow: 0 10px 10px rgba(0,0,0,.06);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.06);
 
   @media screen and (min-width: 408px) {
     width: 408px;
@@ -131,11 +126,11 @@ export default {
 .cart-transition-enter-active,
 .cart-transition-leave-active {
   will-change: opacity;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 
   .cart__content {
     will-change: transform;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
 }
 .cart-transition-enter,

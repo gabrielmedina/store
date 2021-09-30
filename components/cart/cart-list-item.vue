@@ -10,14 +10,16 @@
       </p>
 
       <div class="cart-list-item__quantity">
-        <ButtonIcon
+        <Button
           data-testid="decrease"
           tag="button"
+          type="icon"
+          variant="transparent"
           class="cart__close"
           @click="decrease"
         >
           <SvgRemove />
-        </ButtonIcon>
+        </Button>
 
         <span
           data-testid="quantity"
@@ -26,14 +28,16 @@
           {{ quantity }}
         </span>
 
-        <ButtonIcon
+        <Button
           data-testid="increase"
           tag="button"
+          type="icon"
+          variant="transparent"
           class="cart__close"
           @click="increase"
         >
           <SvgAdd />
-        </ButtonIcon>
+        </Button>
       </div>
     </div>
 
@@ -55,12 +59,12 @@ import SvgRemove from '~/assets/img/icons/remove-outline.svg?inline'
 
 import cartService from '@/services/cartService'
 
-import ButtonIcon from '@/components/button/button-icon'
+import Button from '@/components/button/button'
 
 export default {
   name: 'CartListItem',
   components: {
-    ButtonIcon,
+    Button,
     SvgAdd,
     SvgRemove
   },

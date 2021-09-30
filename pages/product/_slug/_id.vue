@@ -17,7 +17,12 @@
             {{ product.price }}
           </p>
 
-          <Button text="Add to cart" @click="addToCart" />
+          <Button
+            variant="primary"
+            @click="addToCart"
+          >
+            Add to cart
+          </Button>
         </div>
 
         <div class="product-details__gallery">
