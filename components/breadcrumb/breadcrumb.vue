@@ -10,6 +10,7 @@
     >
       <nuxt-link
         :to="link.path"
+        :data-testid="link.path"
         class="breadcrumb__link"
       >
         {{ link.title }}
