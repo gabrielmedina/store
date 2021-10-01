@@ -89,12 +89,7 @@ export default {
   },
   methods: {
     addToCart() {
-      try {
-        cartService.add(this.product)
-      } catch (error) {
-        // TODO: move this msg to Toast component
-        console.warn(error) // eslint-disable-line
-      }
+      cartService.add(this.product)
     },
   },
 }

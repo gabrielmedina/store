@@ -10,7 +10,7 @@ import ProductData from '@/assets/data/products'
 import ProductList from '@/components/product/product-list'
 
 export default {
-  name: 'PageIndex',
+  name: 'PageHome',
   components: {
     ProductList,
   },
