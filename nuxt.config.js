@@ -20,11 +20,14 @@ export default {
   css: [
     '@/assets/styles/reset.scss',
     '@/assets/styles/colors.scss',
+    '@/assets/styles/body.scss',
+    '@/assets/styles/transitions.scss',
     '@/assets/styles/containers.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+     {  src: '@/plugins/body-scroll-width.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

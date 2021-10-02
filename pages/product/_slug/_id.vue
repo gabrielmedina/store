@@ -43,6 +43,7 @@
 import productsData from '@/assets/data/products'
 
 import cartService from '@/services/cartService'
+import domService from '@/services/domService'
 
 import Breadcrumb from '@/components/breadcrumb/breadcrumb'
 
@@ -90,6 +91,7 @@ export default {
   methods: {
     addToCart() {
       cartService.add(this.product)
+      domService.disableBodyScroll(document.querySelector('body'))
     },
   },
 }
@@ -101,7 +103,7 @@ export default {
   row-gap: 32px;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: 448px auto;
+    grid-template-columns: 50% auto;
     column-gap: 32px;
   }
 
@@ -110,7 +112,7 @@ export default {
   }
 
   @media screen and (min-width: 1280px) {
-    grid-template-columns: 712px auto;
+    grid-template-columns: 50% auto;
     column-gap: 64px;
   }
 }

@@ -1,31 +1,31 @@
 <template>
   <transition name="cart-transition">
-    <div v-show="display" data-testid="cart" class="cart">
+    <div
+      v-show="display"
+      data-testid="cart"
+      class="cart"
+    >
       <section class="cart__content">
-        <header v-if="!hasProducts" class="cart__header">
+        <header class="cart__header">
           <h2 class="cart__title">My cart</h2>
-          <p class="cart__text">This cart is empty</p>
+
+          <p class="cart__text">{{ cartText }}</p>
+
+          <Button
+            tag="button"
+            data-testid="close"
+            variant="transparent"
+            type="icon"
+            class="cart__close"
+            @click="close"
+          >
+            <SvgClose>
+              <title>Close cart</title>
+            </SvgClose>
+          </Button>
         </header>
 
-        <template v-else>
-          <header class="cart__header">
-            <h2 class="cart__title">My cart</h2>
-            <p class="cart__text">With {{ products.length }} products</p>
-          </header>
-
-          <CartList :products="products" />
-        </template>
-
-        <Button
-          tag="button"
-          data-testid="close"
-          variant="transparent"
-          type="icon"
-          class="cart__close"
-          @click="close"
-        >
-          <SvgClose />
-        </Button>
+        <CartList v-if="hasProducts" :products="products" />
       </section>
     </div>
   </transition>
@@ -33,6 +33,7 @@
 
 <script>
 import cartService from '@/services/cartService'
+import domService from '@/services/domService'
 
 import Button from '@/components/button/button'
 import CartList from '@/components/cart/cart-list'
@@ -56,10 +57,19 @@ export default {
     hasProducts() {
       return cartService.hasItems()
     },
+    cartText() {
+      const productsQuantity = this.products.length
+
+      if (productsQuantity === 1) return 'With 1 product'
+      if (productsQuantity > 1) return `With ${productsQuantity} products`
+
+      return 'This cart is empty'
+    },
   },
   methods: {
     close() {
       cartService.close()
+      domService.enableBodyScroll(document.querySelector('body'))
     },
   },
 }
@@ -70,6 +80,7 @@ export default {
   position: fixed;
   top: 0;
   right: 0;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   display: flex;
@@ -78,6 +89,7 @@ export default {
 }
 
 .cart__content {
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -116,7 +128,7 @@ export default {
 .cart__close {
   position: absolute;
   top: 16px;
-  right: 24px;
+  right: 0;
 
   @media screen and (min-width: 768px) {
     top: 24px;
@@ -138,7 +150,13 @@ export default {
   opacity: 0;
 
   .cart__content {
-    transform: translateX(100%);
+    transform: translateY(20%);
+  }
+
+  @media screen and (min-width: 408px) {
+    .cart__content {
+      transform: translateX(100%);
+    }
   }
 }
 </style>

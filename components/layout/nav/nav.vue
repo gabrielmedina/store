@@ -10,7 +10,9 @@
           type="icon"
           @click="openCart"
         >
-          <SvgCart />
+          <SvgCart>
+            <title>Open cart</title>
+          </SvgCart>
         </Button>
       </li>
     </ul>
@@ -19,6 +21,7 @@
 
 <script>
 import cartService from '@/services/cartService'
+import domService from '@/services/domService'
 
 import Button from '@/components/button/button'
 
@@ -33,6 +36,7 @@ export default {
   methods: {
     openCart() {
       cartService.open()
+      domService.disableBodyScroll(document.querySelector('body'))
     },
   },
 }

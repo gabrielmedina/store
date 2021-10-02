@@ -12,7 +12,9 @@
           type="icon"
           @click.stop.prevent="addToCart"
         >
-          <SvgCart />
+          <SvgCart>
+            <title>Add to cart</title>
+          </SvgCart>
         </Button>
       </template>
     </Card>
@@ -23,6 +25,7 @@
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
 import cartService from '@/services/cartService'
+import domService from '@/services/domService'
 
 import Card from '@/components/card/card'
 import Button from '@/components/button/button'
@@ -46,6 +49,7 @@ export default {
   methods: {
     addToCart() {
       cartService.add(this.product)
+      domService.disableBodyScroll(document.querySelector('body'))
     },
   },
 }
