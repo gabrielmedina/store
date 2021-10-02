@@ -18,7 +18,9 @@
           class="cart__close"
           @click="decrease"
         >
-          <SvgRemove />
+          <SvgRemove>
+            <title>Decrease</title>
+          </SvgRemove>
         </Button>
 
         <span
@@ -36,7 +38,9 @@
           class="cart__close"
           @click="increase"
         >
-          <SvgAdd />
+          <SvgAdd>
+            <title>Increase</title>
+          </SvgAdd>
         </Button>
       </div>
     </div>
