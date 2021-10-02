@@ -9,21 +9,70 @@
 
     <input
       id="form-search"
+      v-model="value"
       type="search"
       placeholder="What are you searching for?"
       class="form-search__input"
+    />
+
+    <Button
+      v-if="displayClearButton"
+      tag="button"
+      type="icon"
+      class="form-search__button-clear"
+      @click="clear"
     >
+      <SvgClear>
+        <title>Clear search</title>
+      </SvgClear>
+    </Button>
   </form>
 </template>
 
 <script>
+import { debounce } from 'lodash'
+
+import Button from '@/components/button/button'
+
+import SvgClear from '~/assets/img/icons/close-outline.svg?inline'
+
 export default {
   name: 'FormSearch',
+  components: {
+    Button,
+    SvgClear,
+  },
+  data() {
+    return {
+      value: '',
+    };
+  },
+  computed: {
+    displayClearButton() {
+      return this.value !== ''
+    },
+  },
+  watch: {
+    value(newValue) {
+      this.update(newValue)
+    },
+  },
+  methods: {
+    clear() {
+      if (this.displayClearButton) {
+        this.value = ''
+      }
+    },
+    update: debounce(function(value) {
+      this.$emit('changed', value)
+    }, 500),
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .form-search {
+  position: relative;
   display: block;
 }
 
@@ -37,6 +86,7 @@ export default {
   width: 100%;
   height: 56px;
   padding: 0 24px;
+  background: #fff;
   border-radius: 4px;
   border: solid 1px var(--color-primary);
   font-size: 1rem;
@@ -44,9 +94,12 @@ export default {
   &:focus {
     border-color: var(--color-primary-dark);
   }
+}
 
-  @media screen and (min-width: 768px) {
-    max-width: 408px;
-  }
+.form-search__button-clear {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
 }
 </style>
