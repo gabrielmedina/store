@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <div class="header__content">
+    <div class="header__form">
       <slot />
     </div>
 
@@ -33,7 +33,7 @@ export default {
   display: grid;
   grid-template-areas:
     'logo nav'
-    'content content';
+    'form form';
   row-gap: 16px;
   align-items: center;
   padding: 16px 24px;
@@ -44,7 +44,7 @@ export default {
   }
 
   @media screen and (min-width: 992px) {
-    grid-template-areas: 'logo content nav';
+    grid-template-areas: 'logo form nav';
     grid-template-columns: auto 1fr 1fr;
     column-gap: 32px;
     padding: 24px 32px;
@@ -67,8 +67,9 @@ export default {
   margin: 0;
 }
 
-.header__content {
-  grid-area: content;
+.header__form {
+  grid-area: form;
+  max-width: 448px;
 }
 
 .header__nav {
