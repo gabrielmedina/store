@@ -1,21 +1,21 @@
 import Products from '@/assets/data/products'
 
 class ProductService {
-  getProducts() {
+  get() {
     const products = Products
-    // const product = await api.getProducts()
+    // const product = await api.get()
 
     return products
   }
 
-  getProductById(id) {
+  getById(id) {
     const product = Products.find((product) => product.id === id)
     // const product = await api.getProduct({ id })
 
     return product
   }
 
-  getProductByTerm(term) {
+  getByTerm(term) {
     term = term.toLowerCase()
 
     const products = Products.filter((product) => {

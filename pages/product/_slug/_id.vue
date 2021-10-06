@@ -56,7 +56,7 @@ export default {
     Breadcrumb,
   },
   asyncData({ route }) {
-    const product = productService.getProductById(route.params.id)
+    const product = productService.getById(route.params.id)
 
     return {
       product,

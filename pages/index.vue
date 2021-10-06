@@ -50,9 +50,9 @@ export default {
       let products = []
 
       if (search) {
-        products = productService.getProductByTerm(search)
+        products = productService.getByTerm(search)
       } else {
-        products = productService.getProducts()
+        products = productService.get()
       }
 
       searchService.setProducts(products)
