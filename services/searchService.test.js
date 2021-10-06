@@ -1,7 +1,7 @@
 import searchService from '@/services/searchService'
 import Products from '@/test/_stubs/products'
 
-describe('Services > ProductService', () => {
+describe('Services > SearchService', () => {
   it('when setProducts() is called', () => {
     expect(searchService.setProducts(Products)).toEqual(Products)
   })
