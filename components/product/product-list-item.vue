@@ -13,7 +13,7 @@
           @click.stop.prevent="addToCart"
         >
           <SvgCart>
-            <title>Add to cart</title>
+            <title>Add {{ product.title }} to cart</title>
           </SvgCart>
         </Button>
       </template>
@@ -59,5 +59,12 @@ export default {
 .product-list-item {
   display: block;
   text-decoration: none;
+  will-change: transform;
+  transition: transform 0.2s;
+
+  &:hover,
+  &:focus {
+    transform: translateY(-4px);
+  }
 }
 </style>
