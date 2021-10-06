@@ -12,7 +12,7 @@
       <FormSearch @submit="doSearch" />
     </Header>
 
-    <main>
+    <main class="default__main">
       <Nuxt />
       <Cart id="cart" />
     </main>
@@ -56,8 +56,10 @@ export default {
 
 <style lang="scss" scoped>
 .default {
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
-  min-height: 100vh;
+  min-height: calc(100vh + 64px);
   background: #F2F2F2;
 }
 
@@ -87,7 +89,11 @@ export default {
   }
 }
 
+.default__main {
+  margin-bottom: 56px;
+}
+
 .default__footer {
-  margin-top: 56px;
+  margin-top: auto;
 }
 </style>
