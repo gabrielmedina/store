@@ -7,7 +7,7 @@
           tag="a"
           href="#cart"
           variant="transparent"
-          type="icon"
+          affordance="icon"
           @click="openCart"
         >
           <SvgCart>

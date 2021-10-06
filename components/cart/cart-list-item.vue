@@ -13,7 +13,7 @@
         <Button
           data-testid="decrease"
           tag="button"
-          type="icon"
+          affordance="icon"
           variant="transparent"
           class="cart__close"
           @click="decrease"
@@ -33,7 +33,7 @@
         <Button
           data-testid="increase"
           tag="button"
-          type="icon"
+          affordance="icon"
           variant="transparent"
           class="cart__close"
           @click="increase"

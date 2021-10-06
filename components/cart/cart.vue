@@ -15,7 +15,7 @@
             tag="button"
             data-testid="close"
             variant="transparent"
-            type="icon"
+            affordance="icon"
             class="cart__close"
             @click="close"
           >

@@ -4,7 +4,7 @@
     class="button"
     :class="{
       [`button--${variant}`]: variant,
-      [`button--${type}`]: type,
+      [`button--${affordance}`]: affordance,
     }"
     v-bind="$attrs"
     v-on="$listeners"
@@ -38,7 +38,7 @@ export default {
         'primary',
       ])
     },
-    type: {
+    affordance: {
       type: String,
       default: null,
       validator: shouldBeOneOf([

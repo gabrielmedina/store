@@ -74,9 +74,9 @@ describe('Components > Button > Button', () => {
     })
   })
 
-  describe('when type props is "icon"', () => {
+  describe('when affordance props is "icon"', () => {
     it('should render the component with class "button--icon"', () => {
-      renderComponent({ type: 'icon' })
+      renderComponent({ affordance: 'icon' })
 
       expect(screen.getByRole('button')).toHaveClass('button--icon')
     })

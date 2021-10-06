@@ -9,7 +9,7 @@
         <Button
           tag="button"
           data-testid="add"
-          type="icon"
+          affordance="icon"
           @click.stop.prevent="addToCart"
         >
           <SvgCart>
