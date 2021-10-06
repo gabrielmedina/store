@@ -11,7 +11,7 @@
           @click="openCart"
         >
           <SvgCart>
-            <title>Open cart</title>
+            <title>Open my cart</title>
           </SvgCart>
         </Button>
       </li>
