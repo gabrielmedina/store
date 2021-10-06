@@ -8,6 +8,8 @@ class SearchService {
   setProducts(products) {
     searchState.products.length = 0
     searchState.products.push(...products)
+
+    return searchState.products
   }
 }
 
