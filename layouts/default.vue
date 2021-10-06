@@ -9,7 +9,7 @@
         <Nav />
       </template>
 
-      <FormSearch />
+      <FormSearch @submit="doSearch" />
     </Header>
 
     <main>
@@ -40,11 +40,21 @@ export default {
     FormSearch,
     SvgLogo,
   },
+  methods: {
+    doSearch(value) {
+      this.$router.push({
+        name: 'index',
+        query: {
+          search: value
+        }
+      })
+    },
+  }
 }
 </script>
 
 
-    Breadcrumb<style lang="scss" scoped>
+<style lang="scss" scoped>
 .default {
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;

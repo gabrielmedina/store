@@ -1,5 +1,8 @@
 <template>
-  <form class="form-search">
+  <form
+    class="form-search"
+    @submit.prevent="handleSubmit"
+  >
     <label
       for="form-search"
       class="form-search__label"
@@ -16,11 +19,12 @@
     />
 
     <Button
-      v-if="displayClearButton"
+      v-if="hasValue"
       tag="button"
-      type="icon"
+      type="button"
+      affordance="icon"
       class="form-search__button-clear"
-      @click="clear"
+      @click="handleClear"
     >
       <SvgClear>
         <title>Clear search</title>
@@ -48,23 +52,26 @@ export default {
     };
   },
   computed: {
-    displayClearButton() {
+    hasValue() {
       return this.value !== ''
     },
   },
   watch: {
-    value(newValue) {
-      this.update(newValue)
+    value() {
+      this.handleUpdate()
     },
   },
   methods: {
-    clear() {
-      if (this.displayClearButton) {
+    handleSubmit() {
+      this.$emit('submit', this.value)
+    },
+    handleClear() {
+      if (this.hasValue) {
         this.value = ''
       }
     },
-    update: debounce(function(value) {
-      this.$emit('changed', value)
+    handleUpdate: debounce(function() {
+      this.handleSubmit()
     }, 500),
   },
 }

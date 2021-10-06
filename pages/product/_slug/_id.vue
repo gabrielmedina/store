@@ -10,6 +10,10 @@
           </h1>
 
           <p class="product-details__text">
+            {{ product.summary }}
+          </p>
+
+          <p class="product-details__text">
             {{ product.description }}
           </p>
 
@@ -40,8 +44,7 @@
 </template>
 
 <script>
-import productsData from '@/assets/data/products'
-
+import productService from '@/services/productService'
 import cartService from '@/services/cartService'
 import domService from '@/services/domService'
 
@@ -53,10 +56,7 @@ export default {
     Breadcrumb,
   },
   asyncData({ route }) {
-    const product = productsData.find(
-      (product) => product.id === route.params.id
-    )
-    // const product = await api.getProduct({ id: route.params.id })
+    const product = productService.getProductById(route.params.id)
 
     return {
       product,

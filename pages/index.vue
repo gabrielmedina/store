@@ -1,11 +1,18 @@
 <template>
   <div class="container">
-    <ProductList :products="products" />
+    <ProductList
+      v-if="hasProducts"
+      :products="products"
+    />
+    <p v-else>
+      Sorry! :/
+    </p>
   </div>
 </template>
 
 <script>
-import ProductData from '@/assets/data/products'
+import productService from '@/services/productService'
+import searchService from '@/services/searchService'
 
 import ProductList from '@/components/product/product-list'
 
@@ -28,8 +35,28 @@ export default {
   },
   computed: {
     products() {
-      return ProductData
+      this.updateProducts()
+
+      return searchService.getProducts()
+    },
+    hasProducts() {
+      return this.products.length > 0
     }
+  },
+  methods: {
+    updateProducts() {
+      const search = this.$route.query.search
+
+      let products = []
+
+      if (search) {
+        products = productService.getProductByTerm(search)
+      } else {
+        products = productService.getProducts()
+      }
+
+      searchService.setProducts(products)
+    },
   },
 }
 </script>
