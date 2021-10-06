@@ -1,6 +1,7 @@
 <template>
   <form
     class="form-search"
+    name="form-search"
     @submit.prevent="handleSubmit"
   >
     <label
@@ -20,6 +21,7 @@
 
     <Button
       v-if="hasValue"
+      data-testid="clear"
       tag="button"
       type="button"
       affordance="icon"
@@ -66,9 +68,7 @@ export default {
       this.$emit('submit', this.value)
     },
     handleClear() {
-      if (this.hasValue) {
-        this.value = ''
-      }
+      this.value = ''
     },
     handleUpdate: debounce(function() {
       this.handleSubmit()
