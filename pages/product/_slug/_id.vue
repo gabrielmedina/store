@@ -22,6 +22,7 @@
           </p>
 
           <Button
+            data-testid="add"
             variant="primary"
             @click="addToCart"
           >
@@ -51,16 +52,9 @@ import domService from '@/services/domService'
 import Breadcrumb from '@/components/breadcrumb/breadcrumb'
 
 export default {
-  name: 'PageProduct',
+  name: 'PageProductDetail',
   components: {
     Breadcrumb,
-  },
-  asyncData({ route }) {
-    const product = productService.getById(route.params.id)
-
-    return {
-      product,
-    }
   },
   head() {
     return {
@@ -86,6 +80,9 @@ export default {
           path: this.$route.path,
         },
       ]
+    },
+    product() {
+      return productService.getById(this.$route.params.id)
     },
   },
   methods: {
