@@ -17,7 +17,7 @@
         class="card__image"
         :src="image.src"
         :alt="image.alt"
-      >
+      />
     </figure>
   </section>
 </template>
@@ -99,6 +99,7 @@ export default {
 
 .card__figure {
   order: 1;
+  min-height: 56px;
   background: #e5e5e5;
 }
 
