@@ -48,6 +48,12 @@ export default {
     Button,
     SvgClear,
   },
+  props: {
+    initialValue: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       value: '',
@@ -62,6 +68,11 @@ export default {
     value() {
       this.handleUpdate()
     },
+  },
+  created() {
+    if (this.initialValue !== '') {
+      this.value = this.initialValue
+    }
   },
   methods: {
     handleSubmit() {
