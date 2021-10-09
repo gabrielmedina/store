@@ -21,7 +21,7 @@ $ npm run generate
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Test suit
+## Test suite
 
 ```bash
 # run jest
