@@ -9,7 +9,10 @@
         <Nav />
       </template>
 
-      <FormSearch @submit="doSearch" />
+      <FormSearch
+        :initial-value="querySearch"
+        @submit="doSearch"
+      />
     </Header>
 
     <main class="default__main">
@@ -39,6 +42,15 @@ export default {
     Cart,
     FormSearch,
     SvgLogo,
+  },
+  computed: {
+    querySearch() {
+      const querySearch = this.$route.query.search
+
+      if (!querySearch) return undefined
+
+      return querySearch
+    }
   },
   methods: {
     doSearch(value) {
