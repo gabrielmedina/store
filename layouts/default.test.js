@@ -27,7 +27,6 @@ function renderComponent(params) {
 describe('Layouts > Default', () => {
   describe('when the layout is rendered', () => {
     const $route = {
-      path: '/',
       query: {}
     }
 
@@ -42,7 +41,6 @@ describe('Layouts > Default', () => {
     const term = 'term'
 
     const $route = {
-      path: '/',
       query: {
         search: term
       }
@@ -59,7 +57,6 @@ describe('Layouts > Default', () => {
     const term = 'term'
 
     const $route = {
-      path: '/',
       query: {}
     }
 
