@@ -30,6 +30,8 @@ export default {
 <style lang="scss" scoped>
 .product-list {
   display: inline-grid;
+  box-sizing: border-box;
+  width: 100%;
   row-gap: 32px;
   margin: 0;
   padding: 0;
