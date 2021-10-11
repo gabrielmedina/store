@@ -4,7 +4,11 @@
     class="product-list-item"
     :to="`/product/${product.slug}/${product.id}`"
   >
-    <Card :title="product.title" :text="product.price" :image="product.image">
+    <Card
+      :title="product.title"
+      :text="product.price"
+      :image="product.image"
+    >
       <template #cta>
         <Button
           tag="button"
