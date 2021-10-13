@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import productService from '@/services/productService'
-import searchService from '@/services/searchService'
+import productManager from '@/managers/productManager'
+import searchManager from '@/managers/searchManager'
 
 import ProductList from '@/components/product/product-list'
 
@@ -20,6 +20,30 @@ export default {
   name: 'PageHome',
   components: {
     ProductList,
+  },
+  async asyncData({ route }) {
+    const search = route.query.search
+
+    let products = []
+
+    if (search) {
+      const response = await productManager.getByTerm(search)
+      products = response.products
+    } else {
+      const response = await productManager.get()
+      products = response.products
+    }
+
+    searchManager.setProducts(products)
+
+    return {
+      products: searchManager.getProducts()
+    }
+  },
+  data() {
+    return {
+      products: [],
+    }
   },
   head() {
     return {
@@ -34,28 +58,13 @@ export default {
     }
   },
   computed: {
-    products() {
-      this.updateProducts()
-
-      return searchService.getProducts()
-    },
     hasProducts() {
       return this.products.length > 0
     }
   },
-  methods: {
-    updateProducts() {
-      const search = this.$route.query.search
-
-      let products = []
-
-      if (search) {
-        products = productService.getByTerm(search)
-      } else {
-        products = productService.get()
-      }
-
-      searchService.setProducts(products)
+  watch: {
+    async $route() {
+      await this.$nuxt.refresh()
     },
   },
 }

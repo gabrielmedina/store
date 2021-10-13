@@ -1,6 +1,6 @@
 import cartState from '@/states/cartState'
 
-class CartService {
+class CartManager {
   add(item) {
     if (this.#findIndex(item) > -1) {
       this.open()
@@ -49,4 +49,4 @@ class CartService {
   }
 }
 
-export default new CartService
+export default new CartManager

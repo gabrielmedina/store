@@ -1,4 +1,4 @@
-class DomService {
+class DomManager {
   disableBodyScroll(element) {
     element.classList.add('body--scroll-lock')
   }
@@ -8,4 +8,4 @@ class DomService {
   }
 }
 
-export default new DomService
+export default new DomManager

@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import cartService from '@/services/cartService'
-import domService from '@/services/domService'
+import cartManager from '@/managers/cartManager'
+import domManager from '@/managers/domManager'
 
 import Button from '@/components/button/button'
 import CartList from '@/components/cart/cart-list'
@@ -49,13 +49,13 @@ export default {
   },
   computed: {
     display() {
-      return cartService.isOpened()
+      return cartManager.isOpened()
     },
     products() {
-      return cartService.get()
+      return cartManager.get()
     },
     hasProducts() {
-      return cartService.hasItems()
+      return cartManager.hasItems()
     },
     cartText() {
       const productsQuantity = this.products.length
@@ -68,8 +68,8 @@ export default {
   },
   methods: {
     close() {
-      cartService.close()
-      domService.enableBodyScroll(document.querySelector('body'))
+      cartManager.close()
+      domManager.enableBodyScroll(document.querySelector('body'))
     },
   },
 }

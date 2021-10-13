@@ -18,7 +18,7 @@
           </p>
 
           <p class="product-details__price">
-            {{ product.price }}
+            {{ price }}
           </p>
 
           <Button
@@ -45,9 +45,11 @@
 </template>
 
 <script>
-import productService from '@/services/productService'
-import cartService from '@/services/cartService'
-import domService from '@/services/domService'
+import productManager from '@/managers/productManager'
+import cartManager from '@/managers/cartManager'
+import domManager from '@/managers/domManager'
+
+import formatCurrency from '@/utils/formatCurrency'
 
 import Breadcrumb from '@/components/breadcrumb/breadcrumb'
 
@@ -55,6 +57,18 @@ export default {
   name: 'PageProductDetail',
   components: {
     Breadcrumb,
+  },
+  asyncData({ route }) {
+    const product = productManager.getById(route.params.id)
+
+    return {
+      product
+    }
+  },
+  data() {
+    return {
+      product: {}
+    }
   },
   head() {
     return {
@@ -81,14 +95,14 @@ export default {
         },
       ]
     },
-    product() {
-      return productService.getById(this.$route.params.id)
+    price() {
+      return formatCurrency.format(this.product.price)
     },
   },
   methods: {
     addToCart() {
-      cartService.add(this.product)
-      domService.disableBodyScroll(document.querySelector('body'))
+      cartManager.add(this.product)
+      domManager.disableBodyScroll(document.querySelector('body'))
     },
   },
 }

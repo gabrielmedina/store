@@ -6,7 +6,7 @@
       </h2>
 
       <p class="cart-list-item__price">
-        {{ product.price }}
+        {{ price }}
       </p>
 
       <div class="cart-list-item__quantity">
@@ -61,7 +61,9 @@ import { objectShouldHave } from 'vue-prop-validation-helper'
 import SvgAdd from '~/assets/img/icons/add-outline.svg?inline'
 import SvgRemove from '~/assets/img/icons/remove-outline.svg?inline'
 
-import cartService from '@/services/cartService'
+import cartManager from '@/managers/cartManager'
+
+import formatCurrency from '@/utils/formatCurrency'
 
 import Button from '@/components/button/button'
 
@@ -89,6 +91,11 @@ export default {
       quantity: 1,
     }
   },
+  computed: {
+    price() {
+      return formatCurrency.format(this.product.price)
+    },
+  },
   methods: {
     increase() {
       this.quantity++
@@ -96,7 +103,7 @@ export default {
     decrease() {
       if (this.quantity === 1) {
         // TODO: improve UX with confirmation dialog
-        return cartService.remove(this.product)
+        return cartManager.remove(this.product)
       }
 
       this.quantity--

@@ -1,8 +1,8 @@
 import { screen, render, fireEvent } from '@testing-library/vue'
 import Nav from '@/components/layout/nav/nav'
-import cartService from '@/services/cartService'
+import cartManager from '@/managers/cartManager'
 
-jest.mock('@/services/cartService')
+jest.mock('@/managers/cartManager')
 
 function renderComponent() {
   const { container } = render(Nav)
@@ -31,8 +31,8 @@ describe('Components > Layout > Nav > Nav', () => {
       renderComponent()
 
       await fireEvent.click(screen.getByTestId('cart'))
-      expect(cartService.open).toBeCalled()
-      expect(cartService.open).toBeCalledTimes(1)
+      expect(cartManager.open).toBeCalled()
+      expect(cartManager.open).toBeCalledTimes(1)
     })
   })
 })

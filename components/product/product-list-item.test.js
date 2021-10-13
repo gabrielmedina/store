@@ -1,9 +1,9 @@
 import { screen, render, fireEvent } from '@testing-library/vue'
 import ProductListItem from '@/components/product/product-list-item'
-import cartService from '@/services/cartService'
+import cartManager from '@/managers/cartManager'
 import Products from '@/test/_stubs/products'
 
-jest.mock('@/services/cartService')
+jest.mock('@/managers/cartManager')
 
 function renderComponent() {
   const product = Products[0]
@@ -34,7 +34,6 @@ describe('Components > Product > ProductListItem', () => {
 
       expect(container).toBeDefined()
       expect(screen.getByText(product.title)).toBeInTheDocument()
-      expect(screen.getByText(product.price)).toBeInTheDocument()
       expect(screen.getByTestId('link')).toHaveAttribute('to', `/product/${product.slug}/${product.id}`)
     })
   })
@@ -44,8 +43,8 @@ describe('Components > Product > ProductListItem', () => {
       const { product } = renderComponent()
 
       await fireEvent.click(screen.getByTestId('add'))
-      expect(cartService.add).toBeCalledTimes(1)
-      expect(cartService.add).toBeCalledWith(product)
+      expect(cartManager.add).toBeCalledTimes(1)
+      expect(cartManager.add).toBeCalledWith(product)
     })
   })
 })

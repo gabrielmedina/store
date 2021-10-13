@@ -6,7 +6,7 @@
   >
     <Card
       :title="product.title"
-      :text="product.price"
+      :text="price"
       :image="product.image"
     >
       <template #cta>
@@ -28,8 +28,10 @@
 <script>
 import { objectShouldHave } from 'vue-prop-validation-helper'
 
-import cartService from '@/services/cartService'
-import domService from '@/services/domService'
+import cartManager from '@/managers/cartManager'
+import domManager from '@/managers/domManager'
+
+import formatCurrency from '@/utils/formatCurrency'
 
 import Card from '@/components/card/card'
 import Button from '@/components/button/button'
@@ -50,10 +52,15 @@ export default {
       validator: objectShouldHave(['id', 'slug', 'title', 'price', 'image']),
     },
   },
+  computed: {
+    price() {
+      return formatCurrency.format(this.product.price)
+    },
+  },
   methods: {
     addToCart() {
-      cartService.add(this.product)
-      domService.disableBodyScroll(document.querySelector('body'))
+      cartManager.add(this.product)
+      domManager.disableBodyScroll(document.querySelector('body'))
     },
   },
 }

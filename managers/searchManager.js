@@ -1,6 +1,6 @@
 import searchState from '@/states/searchState'
 
-class SearchService {
+class SearchManager {
   getProducts() {
     return searchState.products
   }
@@ -13,4 +13,4 @@ class SearchService {
   }
 }
 
-export default new SearchService
+export default new SearchManager

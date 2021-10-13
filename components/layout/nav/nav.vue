@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import cartService from '@/services/cartService'
-import domService from '@/services/domService'
+import cartManager from '@/managers/cartManager'
+import domManager from '@/managers/domManager'
 
 import Button from '@/components/button/button'
 
@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     openCart() {
-      cartService.open()
-      domService.disableBodyScroll(document.querySelector('body'))
+      cartManager.open()
+      domManager.disableBodyScroll(document.querySelector('body'))
     },
   },
 }

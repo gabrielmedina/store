@@ -1,9 +1,9 @@
 import { screen, render, fireEvent } from '@testing-library/vue'
 import CartListItem from '@/components/cart/cart-list-item'
-import cartService from '@/services/cartService'
+import cartManager from '@/managers/cartManager'
 import Products from '@/test/_stubs/products'
 
-jest.mock('@/services/cartService')
+jest.mock('@/managers/cartManager')
 
 function renderComponent() {
   const product = Products[0]
@@ -32,7 +32,6 @@ describe('Components > Cart > CartListItem', () => {
       expect(container).toBeDefined()
       expect(screen.getByTestId('quantity')).toHaveTextContent('1')
       expect(screen.getByText(product.title)).toBeInTheDocument()
-      expect(screen.getByText(product.price)).toBeInTheDocument()
     })
   })
 
@@ -64,8 +63,8 @@ describe('Components > Cart > CartListItem', () => {
         const { product } = renderComponent()
 
         await fireEvent.click(screen.getByTestId('decrease'))
-        expect(cartService.remove).toBeCalledTimes(1)
-        expect(cartService.remove).toBeCalledWith(product)
+        expect(cartManager.remove).toBeCalledTimes(1)
+        expect(cartManager.remove).toBeCalledWith(product)
       })
     })
   })
