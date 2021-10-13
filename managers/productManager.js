@@ -9,7 +9,7 @@ class ProductManager {
       const response = await algoliaService.get()
 
       return {
-        products: response.hits
+        products: response.hits || []
       }
     } catch (error) {
       console.log(error) // eslint-disable-line
@@ -30,7 +30,7 @@ class ProductManager {
       const response = await algoliaService.getByTerm(term)
 
       return {
-        products: response.hits
+        products: response.hits || []
       }
     } catch (error) {
       console.log(error) // eslint-disable-line
