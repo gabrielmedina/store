@@ -43,6 +43,8 @@ export default {
     '@nuxtjs/svg',
     // https://google-fonts.nuxtjs.org/
     '@nuxtjs/google-fonts',
+    // https://www.npmjs.com/package/@nuxtjs/dotenv
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
