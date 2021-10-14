@@ -63,22 +63,8 @@ export default {
     }
   },
   watch: {
-    async $route() {
-      const search = this.$route.query.search
-
-      let products = []
-
-      if (search) {
-        const response = await productManager.getByTerm(search)
-        products = response.products
-      } else {
-        const response = await productManager.get()
-        products = response.products
-      }
-
-      searchManager.setProducts(products)
-
-      this.products = searchManager.getProducts()
+    $route() {
+      this.$nuxt.refresh()
     },
   },
 }

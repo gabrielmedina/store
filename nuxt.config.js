@@ -57,7 +57,13 @@ export default {
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  build: {},
+
+  env: {
+    algolia: {
+      applicationId: process.env.ALGOLIA_APPLICATION_ID,
+      apiKey: process.env.ALGOLIA_API_KEY,
+    },
   },
 
   // Google Fonts: https://google-fonts.nuxtjs.org
