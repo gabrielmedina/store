@@ -8,7 +8,7 @@
           href="#cart"
           variant="transparent"
           affordance="icon"
-          @click="openCart"
+          @click.prevent="openCart"
         >
           <SvgCart>
             <title>Open my cart</title>
