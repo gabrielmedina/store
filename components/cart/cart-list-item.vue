@@ -130,7 +130,7 @@ export default {
 }
 
 .cart-list-item__price {
-  color: #777;
+  color: #757575;
   font-size: .9rem;
 }
 

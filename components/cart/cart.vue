@@ -122,7 +122,7 @@ export default {
 }
 
 .cart__text {
-  color: #777;
+  color: #757575;
 }
 
 .cart__close {

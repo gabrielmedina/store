@@ -71,7 +71,7 @@ export default {
     &::after {
       content: '/';
       margin-left: 8px;
-      color: #777;
+      color: #757575;
     }
 
     &:last-child {

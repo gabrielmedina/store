@@ -82,7 +82,7 @@ export default {
 
 .card__text {
   margin: 0;
-  color: #777;
+  color: #757575;
   font-size: .9rem;
 
   @media screen and (min-width: 992px) {

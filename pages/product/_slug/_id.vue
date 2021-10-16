@@ -155,7 +155,7 @@ export default {
 }
 
 .product-details__text {
-  color: #777;
+  color: #757575;
   line-height: 1.6;
 }
 
