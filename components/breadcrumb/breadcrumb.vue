@@ -83,7 +83,7 @@ export default {
 }
 
 .breadcrumb__link {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   text-decoration: none;
   padding: 8px 0;
 
