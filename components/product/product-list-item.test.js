@@ -1,9 +1,11 @@
 import { screen, render, fireEvent } from '@testing-library/vue'
 import ProductListItem from '@/components/product/product-list-item'
 import cartManager from '@/managers/cartManager'
+import domManager from '@/managers/domManager'
 import Products from '@/test/_stubs/products'
 
 jest.mock('@/managers/cartManager')
+jest.mock('@/managers/domManager')
 
 function renderComponent() {
   const product = Products[0]
@@ -45,6 +47,27 @@ describe('Components > Product > ProductListItem', () => {
       await fireEvent.click(screen.getByTestId('add'))
       expect(cartManager.add).toBeCalledTimes(1)
       expect(cartManager.add).toBeCalledWith(product)
+    })
+
+    it('should save the trigger element', async () => {
+      renderComponent()
+
+      const button = screen.getByTestId('add')
+      await fireEvent.click(button)
+
+      expect(domManager.setTriggerElementFocus).toBeCalled()
+      expect(domManager.setTriggerElementFocus).toBeCalledTimes(1)
+      expect(domManager.setTriggerElementFocus).toBeCalledWith(button)
+    })
+
+    it('should disable scroll of body element', async () => {
+      renderComponent()
+
+      await fireEvent.click(screen.getByTestId('add'))
+
+      expect(domManager.disableBodyScroll).toBeCalled()
+      expect(domManager.disableBodyScroll).toBeCalledTimes(1)
+      expect(domManager.disableBodyScroll).toBeCalledWith(document.body)
     })
   })
 })

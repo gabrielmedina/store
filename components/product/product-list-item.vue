@@ -58,8 +58,10 @@ export default {
     },
   },
   methods: {
-    addToCart() {
+    addToCart(event) {
       cartManager.add(this.product)
+
+      domManager.setTriggerElementFocus(event.target)
       domManager.disableBodyScroll(document.querySelector('body'))
     },
   },
