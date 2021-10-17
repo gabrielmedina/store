@@ -4,10 +4,17 @@
       v-show="display"
       data-testid="cart"
       class="cart"
+      role="dialog"
     >
       <section class="cart__content">
         <header class="cart__header">
-          <h2 class="cart__title">My cart</h2>
+          <h2
+            ref="elementToInitialFocus"
+            tabindex="-1"
+            class="cart__title"
+          >
+            My cart
+          </h2>
 
           <p class="cart__text">{{ cartText }}</p>
 
@@ -27,6 +34,12 @@
 
         <CartList v-if="hasProducts" :products="products" />
       </section>
+
+      <span
+        ref="elementToFocusControl"
+        data-testid="focus-trap"
+        tabindex="0"
+      />
     </div>
   </transition>
 </template>
@@ -66,9 +79,23 @@ export default {
       return 'This cart is empty'
     },
   },
+  mounted() {
+    const refs = this.$refs
+
+    refs.elementToFocusControl.addEventListener('focus', () => {
+      refs.elementToInitialFocus.focus()
+    })
+  },
+  updated() {
+    if (this.display) {
+      this.$refs.elementToInitialFocus.focus()
+    }
+  },
   methods: {
     close() {
       cartManager.close()
+
+      domManager.returnFocusToTriggerElement()
       domManager.enableBodyScroll(document.querySelector('body'))
     },
   },
@@ -119,6 +146,10 @@ export default {
 
 .cart__title {
   font-size: 1.25rem;
+
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 .cart__text {
