@@ -4,8 +4,6 @@
       <li class="default__nav-item">
         <Button
           data-testid="cart"
-          tag="a"
-          href="#cart"
           variant="transparent"
           affordance="icon"
           @click.prevent="openCart"
@@ -34,8 +32,10 @@ export default {
     SvgCart,
   },
   methods: {
-    openCart() {
+    openCart(event) {
       cartManager.open()
+
+      domManager.setTriggerElementFocus(event.target)
       domManager.disableBodyScroll(document.querySelector('body'))
     },
   },
