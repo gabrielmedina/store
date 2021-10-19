@@ -1,4 +1,7 @@
 export default {
+  // Source Dir: https://nuxtjs.org/docs/configuration-glossary/configuration-srcdir/
+  srcDir: 'src',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'store',
@@ -44,7 +47,7 @@ export default {
     // https://google-fonts.nuxtjs.org/
     '@nuxtjs/google-fonts',
     // https://www.npmjs.com/package/@nuxtjs/dotenv
-    '@nuxtjs/dotenv',
+    [ '@nuxtjs/dotenv', { path: './' } ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

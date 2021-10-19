@@ -1,8 +1,9 @@
 module.exports = {
   moduleNameMapper: {
-    '^~/(.*svg)(\\?inline)$': '<rootDir>/$1',
-    '^@/(.*)$': '<rootDir>/$1',
-    '^~/(.*)$': '<rootDir>/$1',
+    '^~/(.*svg)(\\?inline)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^~/(.*)$': '<rootDir>/src/$1',
+    '^@@/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
   },
   moduleFileExtensions: [
@@ -19,11 +20,12 @@ module.exports = {
   },
   collectCoverage: false,
   collectCoverageFrom: [
-    '<rootDir>/layouts/**/*.vue',
-    '<rootDir>/components/**/*.vue',
-    '<rootDir>/services/**/*.js',
-    '<rootDir>/states/**/*.js',
-    '<rootDir>/utils/**/*.js',
+    '<rootDir>/src/pages/**/*.vue',
+    '<rootDir>/src/layouts/**/*.vue',
+    '<rootDir>/src/components/**/*.vue',
+    '<rootDir>/src/services/**/*.js',
+    '<rootDir>/src/states/**/*.js',
+    '<rootDir>/src/utils/**/*.js',
   ],
   setupFilesAfterEnv: ['<rootDir>/test/_support/jestSetup.js'],
   testEnvironment: 'jsdom'
