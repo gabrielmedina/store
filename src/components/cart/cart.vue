@@ -65,7 +65,7 @@ export default {
       return cartManager.isOpened()
     },
     products() {
-      return cartManager.get()
+      return cartManager.getState().items
     },
     hasProducts() {
       return cartManager.hasItems()
