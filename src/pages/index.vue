@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import productManager from '@/managers/productManager'
 import searchManager from '@/managers/searchManager'
 
 import ProductList from '@/components/product/product-list'
@@ -24,20 +23,14 @@ export default {
   async asyncData({ route }) {
     const search = route.query.search
 
-    let products = []
-
     if (search) {
-      const response = await productManager.getByTerm(search)
-      products = response.products
+      await searchManager.getByTerm(search)
     } else {
-      const response = await productManager.get()
-      products = response.products
+      await searchManager.get()
     }
 
-    searchManager.setProducts(products)
-
     return {
-      products: searchManager.getProducts()
+      products: searchManager.getState().products
     }
   },
   data() {
