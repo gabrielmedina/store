@@ -20,7 +20,7 @@ describe('Managers > CartManager', () => {
     expect(response).toEqual(product)
     expect(cartManager.hasItems()).toBeTruthy()
     expect(cartManager.isOpened()).toBeTruthy()
-    expect(cartManager.get()).toEqual([product])
+    expect(cartManager.getState().items).toEqual([product])
   })
 
   it('when add() is called but the product has present in cart', () => {
@@ -29,7 +29,7 @@ describe('Managers > CartManager', () => {
     const response = cartManager.add(product)
 
     expect(response).toBeFalsy()
-    expect(cartManager.get()).toHaveLength(1)
+    expect(cartManager.getState().items).toHaveLength(1)
   })
 
   it('when remove() is called', () => {
@@ -39,7 +39,7 @@ describe('Managers > CartManager', () => {
 
     expect(response).toEqual(product)
     expect(cartManager.hasItems()).toBeFalsy()
-    expect(cartManager.get()).toEqual([])
+    expect(cartManager.getState().items).toEqual([])
   })
 
   it('when remove() is called but the product has not present in cart', () => {

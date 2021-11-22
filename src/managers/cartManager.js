@@ -1,6 +1,10 @@
 import cartState from '@/states/cartState'
 
 class CartManager {
+  getState() {
+    return cartState
+  }
+
   add(item) {
     if (this.#findIndex(item) > -1) {
       this.open()
@@ -21,10 +25,6 @@ class CartManager {
     }
 
     return false
-  }
-
-  get() {
-    return cartState.items
   }
 
   open() {
