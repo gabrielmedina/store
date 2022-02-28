@@ -1,10 +1,20 @@
-import Products from '@/assets/data/products'
+import algoliaService from '@/services/algoliaService'
 
 class ProductManager {
-  getById(id) {
-    const product = Products.find((product) => product.id === id)
+  async getById(id) {
+    algoliaService.setIndex('dev_store')
 
-    return product
+    try {
+      const response = await algoliaService.getByTerm(id)
+
+      const product = response.hits[0]
+
+      return product
+    } catch (error) {
+      console.log(error) // eslint-disable-line
+
+      return {}
+    }
   }
 }
 

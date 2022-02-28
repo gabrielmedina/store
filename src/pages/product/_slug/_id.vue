@@ -31,7 +31,7 @@
         </div>
 
         <div class="product-details__gallery">
-          <figure class="product-details__figure">
+          <figure v-if="product.image" class="product-details__figure">
             <img
               class="product-details__image"
               :src="product.image.src"
@@ -58,8 +58,8 @@ export default {
   components: {
     Breadcrumb,
   },
-  asyncData({ route }) {
-    const product = productManager.getById(route.params.id)
+  async asyncData({ route }) {
+    const product = await productManager.getById(route.params.id)
 
     return {
       product
